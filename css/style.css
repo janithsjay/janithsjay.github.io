@@ -216,3 +216,9 @@
 .testimonial-carousel .owl-dot.active {
   background: var(--primary);
 }
+
+/*--------*/
+img, svg {
+  padding: 10px;
+  border-radius: 50%;
+}
