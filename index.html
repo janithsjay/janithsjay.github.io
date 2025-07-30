@@ -1,442 +1,714 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <met#aeb3b8et="utf-8">
-        <title>Janith Jaysuriya</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Free Website Template" name="keywords">
-        <meta content="Free Website Template" name="description">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Janith Jayasuriya | Software Engineer</title>
+  <meta name="description" content="Portfolio of Janith Jayasuriya, Senior Software Engineer and Technical Specialist" />
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background: #fff;
+      color: #1a1a1a; /* Dark blackish */
+      overflow: hidden;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #000;
+    }
 
-        <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
+    /* Layout */
+   #container {
+  position: relative;
+  height: 100vh;
+  background: #fff;
+  overflow: hidden;
+}
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <!-- Icon Font Stylesheet -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-        <!-- Libraries Stylesheet -->
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
+    #dp {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid #000;
+      object-fit: cover;
+      margin-bottom: 28px;
+      box-shadow: 0 6px 12px rgb(0 0 0 / 0.3);
+    }
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+    #nameTitle {
+      text-align: center;
+      margin-bottom: 24px;
+    }
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-    </head>
+    #nameTitle h1 {
+      font-size: 2.25rem;
+      font-weight: 900;
+      color: #000;
+      line-height: 1.1;
+      user-select: text;
+    }
 
-    <body>
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
+    #nameTitle p {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: #000;
+      user-select: text;
+      margin-top: 6px;
+      font-style: italic;
+      opacity: 0.7;
+    }
+
+    #bio {
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.45;
+      user-select: text;
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 0 6px;
+    }
+
+    /* Tools & Technologies - Left pane */
+    #toolsContainer {
+      width: 100%;
+      flex-shrink: 0;
+      overflow-y: auto;
+      padding-right: 6px;
+      max-height: calc(100vh - 400px);
+    }
+
+    #toolsContainer h3 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 16px;
+      user-select: text;
+      border-bottom: 2px solid #000;
+      padding-bottom: 6px;
+      letter-spacing: 0.01em;
+      text-align: left;
+    }
+
+    .tool-category {
+      margin-bottom: 28px;
+    }
+
+    .tool-category strong {
+      font-size: 1rem;
+      color: #111;
+      display: block;
+      margin-bottom: 12px;
+      letter-spacing: 0.01em;
+      user-select: text;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: #f0f0f0;
+      color: #000;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      cursor: default;
+      user-select: text;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      letter-spacing: 0.01em;
+    }
+
+    .tag:hover {
+      background-color: #000;
+      color: #fff;
+      box-shadow: 0 4px 14px rgb(0 0 0 / 0.3);
+    }
+
+    /* Scrollbar for left pane tools with subtle black */
+    #toolsContainer::-webkit-scrollbar {
+      width: 6px;
+    }
+    #toolsContainer::-webkit-scrollbar-thumb {
+      background-color: #333;
+      border-radius: 3px;
+    }
+/* Fixed left pane */
+#leftPane {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 360px;
+  height: 100vh;
+  background: #f8f8f8;
+  padding: 40px 30px;
+  box-sizing: border-box;
+  border-right: 1px solid #ddd;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+    /* Right content pane */
+    /* Right pane: margin-left = left pane width + gap */
+#rightContent {
+  margin-left: 200px; /* 360 + 40 gap */
+  max-width: 1100px;
+  padding: 48px 64px;
+  overflow-y: auto;
+  height: 100vh;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.07),
+    0 15px 30px rgba(0, 0, 0, 0.06);
+  user-select: text;
+  font-size: 1rem;
+  color: #1a1a1a;
+
+  /* Center horizontally in remaining space */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+    /* Scroll for right pane content subtle black */
+    #rightContent {
+      scrollbar-width: thin;
+      scrollbar-color: #333 transparent;
+    }
+    #rightContent::-webkit-scrollbar {
+      width: 10px;
+    }
+    #rightContent::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    #rightContent::-webkit-scrollbar-thumb {
+      background-color: #333;
+      border-radius: 10px;
+      border: 3px solid transparent;
+      background-clip: content-box;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 48px;
+    }
+
+    h2.section-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #000;
+      margin-bottom: 24px;
+      user-select: text;
+      border-bottom: 3px solid #000;
+      padding-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 16px;
+      user-select: text;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+      color: #444;
+      font-weight: 500;
+    }
+
+    /* Experience cards */
+    .exp-card {
+      background: #fafafa;
+      border-radius: 12px;
+      padding: 20px 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 5px 15px rgb(0 0 0 / 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    .exp-card:hover {
+      box-shadow: 0 8px 30px rgb(0 0 0 / 0.2);
+    }
+    .exp-role {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #000;
+      margin-bottom: 4px;
+      user-select: text;
+    }
+    .exp-period {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 14px;
+      user-select: text;
+      font-style: italic;
+    }
+    .exp-desc {
+      font-size: 1rem;
+      color: #444;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    /* Recommendations */
+    .rec-card {
+      background: #f9f9f9;
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+      box-shadow: 0 6px 20px rgb(0 0 0 / 0.1);
+      font-style: italic;
+      color: #1a1a1a;
+      font-size: 1.05rem;
+      position: relative;
+      user-select: text;
+    }
+    .rec-card::before {
+      content: '“';
+      font-size: 3.5rem;
+      color: #000;
+      position: absolute;
+      top: 12px;
+      left: 20px;
+      font-weight: 900;
+      opacity: 0.15;
+    }
+    .rec-author {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-top: 20px;
+      color: #555;
+      text-align: right;
+    }
+
+    /* Education card */
+    .edu-card {
+      background: #fafafa;
+      border-radius: 16px;
+      padding: 24px 32px;
+      box-shadow: 0 5px 20px rgb(0 0 0 / 0.1);
+      user-select: text;
+    }
+    .edu-degree {
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: #000;
+      margin-bottom: 4px;
+    }
+    .edu-institution {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+    .edu-grade {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #222;
+      margin-bottom: 18px;
+    }
+    .edu-desc {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    /* Buttons */
+    #contactBtn {
+      display: inline-block;
+      background: #000;
+      color: white;
+      padding: 14px 32px;
+      font-weight: 700;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgb(0 0 0 / 0.4);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    #contactBtn:hover {
+      background: #222;
+      box-shadow: 0 10px 28px rgb(0 0 0 / 0.6);
+    }
+
+    /* Icons container */
+    #socialIcons {
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+      margin-top: 28px;
+      user-select: none;
+    }
+
+    #socialIcons a {
+      color: #000;
+      transition: color 0.3s ease;
+    }
+
+    #socialIcons a:hover {
+      color: #222;
+    }
+
+    #socialIcons svg {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 1px rgb(0 0 0 / 0.3));
+    }
+
+    /* Background canvas full size */
+    #bgCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bgCanvas"></canvas>
+
+  <div id="container">
+    <aside id="leftPane" role="complementary" aria-label="Sidebar with profile and tools">
+      <img
+        id="dp"
+        src="./img/profile.jpg"
+        alt="Janith Jayasuriya Profile Picture"
+        loading="lazy"
+        width="140"
+        height="140"
+      />
+      <div id="nameTitle">
+        <h1>Janith Jayasuriya</h1>
+        <p> Technical Lead|&nbsp; Senior Software Engineer</p>
+      </div>
+      <div id="bio" tabindex="0">Senior Software Engineer with 5+ years of experience building scalable, cloud-native systems using microservices and event-driven architectures. Strong background in modernizing legacy systems, data migration, and batch processing. Skilled in architecture design, feasibility analysis, and technical decision-making. Known for end-to-end ownership, leading teams, peer reviews, and close collaboration with cross-functional stakeholders to ensure quality delivery.
+      </div>
+<!-- enior Software Engineer with over 5 years of experience architecting and delivering scalable systems in cloud-native, microservices, and event-driven environments. Proven track record in revitalizing legacy systems, executing large-scale data migrations, and engineering high-performance batch processing pipelines. Skilled in research, feasibility analysis, and making sound architectural decisions aligned with business goals.
+
+Known for taking full ownership of components from solution design to deployment, with a strong focus on quality, cost, and timely delivery. Experienced in leading cross-functional teams, conducting peer reviews, and continuously refining solutions. Brings a collaborative mindset, strong stakeholder engagement, and seamless coordination across engineering, security, infrastructure, and operations teams. -->
+      <div id="toolsContainer" tabindex="0" aria-label="Tools and technologies">
+        <h3>Tools & Technologies</h3>
+
+        <div class="tool-category">
+          <strong>Enterprise Systems / App Development</strong>
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">Spring Batch</span>
+            <span class="tag">AWS (Fargate, Step Functions)</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Jenkins</span>
+            <span class="tag">GitLab</span>
+          </div>
         </div>
-        <!-- Spinner End -->
 
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-4 sticky-lg-top vh-100">
-                    <div class="d-flex flex-column h-100 text-center overflow-auto shadow">
-                        <img class="w-100 img-fluid mb-4" src="img/profile.jpg" alt="Image">
-                        <h1 class="text-primary mt-2">Janith Jayasuriya</h1>
-                        <div class="mb-4" style="height: 22px;">
-                            <h4 class="typed-text-output d-inline-block text-light"></h4>
-                            <div class="typed-text d-none">Software Engineer, Tech Enthusiast</div>
-                        </div>
-                        <div class="d-flex justify-content-center mt-auto mb-3">
-                            <a class="btn btn-secondary btn-square mx-1" target="_blank" href="https://www.linkedin.com/in/janith-jayasuriya/"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-secondary btn-square mx-1" target="_blank" href="https://github.com/janithsjay"><i class="fab fa-github" aria-hidden="true"></i></a>
-                            <a class="btn btn-secondary btn-square mx-1" target="_blank" href="https://medium.com/@janithsjay"><i class="fab fa-medium"></i></a>
-                            <a class="btn btn-secondary btn-square mx-1" target="_blank" href="https://stackoverflow.com/users/14686823/janith-jayasuriya?tab=profile"><i class="fab fa-stack-overflow"></i></a>
-                        </div>
-                        <div class="d-flex align-items-end justify-content-between border-top">
-                            <a href="" class="btn w-50 border-end" disabled>Request CV</a>
-                            <a href="#contact" class="btn w-50 btn-scroll">Contact Me</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <!-- About Start -->
-                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="title pb-3 mb-5">About Me</h1>
-                        <p>Full-stack developer, familiar with wide range of programming utilities and languages. Knowledgeable backend and frontend development requirements. Able to handle any part of process with ease. Collaborative team player with excellent technical abilities offering more than two years of related experience.</p>
-                        <div class="row mb-4">
-                            <div class="col-sm-6 py-1">
-                                <span class="fw-medium text-primary">Name:</span> Janith Jayasuriya
-                            </div>
-                            <div class="col-sm-6 py-1">
-                                <span class="fw-medium text-primary">Birthday:</span> 11 July
-                            </div>
-                            <div class="col-sm-6 py-1">
-                                <span class="fw-medium text-primary">Degree:</span> Bachelors
-                            </div>
-                            <div class="col-sm-6 py-1">
-                                <span class="fw-medium text-primary">Experience:</span> 3 Years
-                            </div>
-                            <div class="col-sm-6 py-1">
-                                <span class="fw-medium text-primary">Email:</span> janithsjay@gmail.com
-                            </div>
-                            <div class="col-sm-6 py-1">
-                                <span class="fw-medium text-primary">Freelance:</span> Available
-                            </div>
-                        </div>
-                        <div class="row g-4">
-                            <div class="col-md-4 col-lg-6 col-xl-4">
-                                <div class="d-flex bg-secondary p-4">
-                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">3</h1>
-                                    <div class="ps-3">
-                                        <p class="mb-0">Years of</p>
-                                        <h5 class="mb-0">Experience</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-lg-6 col-xl-4">
-                                <div class="d-flex bg-secondary p-4">
-                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">10</h1>
-                                    <div class="ps-3">
-                                        <p class="mb-0">Complete</p>
-                                        <h5 class="mb-0">Projects</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- About End -->
-
-                    <!-- Skills Start -->
-                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="title pb-3 mb-5">Skills</h1>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="skill mb-4">
-                                    <div class="d-flex justify-content-between">
-                                        <p class="mb-2">Java</p>
-                                        <p class="mb-2">95%</p>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="skill mb-4">
-                                    <div class="d-flex justify-content-between">
-                                        <p class="mb-2">Springboot</p>
-                                        <p class="mb-2">80%</p>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="skill mb-4">
-                                    <div class="d-flex justify-content-between">
-                                        <p class="mb-2">JavaScript</p>
-                                        <p class="mb-2">80%</p>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="skill mb-4">
-                                    <div class="d-flex justify-content-between">
-                                        <p class="mb-2">ReactJS</p>
-                                        <p class="mb-2">80%</p>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="skill mb-4">
-                                    <div class="d-flex justify-content-between">
-                                        <p class="mb-2">Redux</p>
-                                        <p class="mb-2">70%</p>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="skill mb-4">
-                                    <div class="d-flex justify-content-between">
-                                        <p class="mb-2">Angular 8</p>
-                                        <p class="mb-2">40%</p>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- Skills End -->
-
-                    <!-- Expericence Start -->
-                    <section class="py-5 wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="title pb-3 mb-5">Expericence</h1>
-                        <div class="border-start border-2 border-light pt-2 ps-5">
-                            <div class="position-relative mb-4">
-                                <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
-                                <h5 class="mb-1">Software Engineer</h5>
-                                <p class="mb-2">Wiley | <small>2022 - Precent</small></p>
-                                <!-- <p>Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam</p> -->
-                            </div>
-                            <div class="position-relative mb-4">
-                                <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
-                                <h5 class="mb-1">Associate Software Engineer</h5>
-                                <p class="mb-2">Wiley | <small>2021 - 2022</small></p>
-                                <!-- <p>Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam</p> -->
-                            </div>
-                            <div class="position-relative mb-4">
-                                <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
-                                <h5 class="mb-1">Automation Associate</h5>
-                                <p class="mb-2">Virtusa | <small>2018 - 2021</small></p>
-                                <!-- <p>Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam</p> -->
-                            </div>
-                        </div>
-                    </section>
-                    <!-- Expericence End -->
-
-                    <!-- Subscribe Start -->
-                    <!-- <section class="wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="bg-secondary text-center p-5">
-                            <h1 class="text-white font-weight-bold">Subscribe My Newsletter</h1>
-                            <p class="text-white">Subscribe and get my latest article in your inbox</p>
-                            <div class="position-relative w-100">
-                                <input class="form-control bg-dark border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                                <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Subscribe</button>
-                            </div>
-                        </div>
-                    </section> -->
-                    <!-- Subscribe End -->
-
-                    <!-- Services Start -->
-                    <!-- <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="title pb-3 mb-5">Services</h1>
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="service-item">
-                                    <i class="fa fa-2x fa-laptop-code mx-auto mb-4"></i>
-                                    <h5 class="mb-2">Web Design</h5>
-                                    <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="service-item">
-                                    <i class="fab fa-2x fa-android mx-auto mb-4"></i>
-                                    <h5 class="mb-2">Apps Development</h5>
-                                    <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="service-item">
-                                    <i class="fa fa-2x fa-search mx-auto mb-4"></i>
-                                    <h5 class="mb-2">SEO</h5>
-                                    <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="service-item">
-                                    <i class="fa fa-2x fa-edit mx-auto mb-4"></i>
-                                    <h5 class="mb-2">Content Creating</h5>
-                                    <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section> -->
-                    <!-- Services End -->
-
-                    <!-- Portfolio Start -->
-                    <!-- <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="title pb-3 mb-5">Portfolio</h1>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-12 text-center mb-2">
-                                        <ul class="list-inline mb-4" id="portfolio-flters">
-                                            <li class="btn btn-secondary active"  data-filter="*"><i class="fa fa-star me-2"></i>All</li>
-                                            <li class="btn btn-secondary" data-filter=".first"><i class="fa fa-laptop-code me-2"></i>Design</li>
-                                            <li class="btn btn-secondary" data-filter=".second"><i class="fa fa-mobile-alt me-2"></i>Development</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="row portfolio-container">
-                                    <div class="col-md-6 mb-4 portfolio-item first">
-                                        <div class="position-relative overflow-hidden mb-2">
-                                            <img class="img-fluid w-100" src="img/portfolio-1.jpg" alt="">
-                                            <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                                <a href="img/portfolio-1.jpg" data-lightbox="portfolio">
-                                                    <i class="bi bi-plus text-light"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-4 portfolio-item second">
-                                        <div class="position-relative overflow-hidden mb-2">
-                                            <img class="img-fluid w-100" src="img/portfolio-2.jpg" alt="">
-                                            <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                                <a href="img/portfolio-2.jpg" data-lightbox="portfolio">
-                                                    <i class="bi bi-plus text-light"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-4 portfolio-item first">
-                                        <div class="position-relative overflow-hidden mb-2">
-                                            <img class="img-fluid w-100" src="img/portfolio-3.jpg" alt="">
-                                            <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                                <a href="img/portfolio-3.jpg" data-lightbox="portfolio">
-                                                    <i class="bi bi-plus text-light"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-4 portfolio-item second">
-                                        <div class="position-relative overflow-hidden mb-2">
-                                            <img class="img-fluid w-100" src="img/portfolio-4.jpg" alt="">
-                                            <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                                <a href="img/portfolio-4.jpg" data-lightbox="portfolio">
-                                                    <i class="bi bi-plus text-light"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section> -->
-                    <!-- Portfolio End -->
-
-                    <!-- Testimonial Start -->
-                    <!-- <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="title pb-3 mb-5">Testimonial</h1>
-                        <div class="owl-carousel testimonial-carousel">
-                            <div class="text-left">
-                                <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                <p class="fs-4 mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</p>
-                                <div class="d-flex align-items-center">
-                                    <img class="img-fluid" src="img/testimonial-1.jpg" style="width: 60px; height: 60px;">
-                                    <div class="ps-3">
-                                        <p class="text-primary fs-5 mb-1">Client Name</p>
-                                        <i>Profession</i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-left">
-                                <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                <p class="fs-4 mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</p>
-                                <div class="d-flex align-items-center">
-                                    <img class="img-fluid" src="img/testimonial-2.jpg" style="width: 60px; height: 60px;">
-                                    <div class="ps-3">
-                                        <p class="text-primary fs-5 mb-1">Client Name</p>
-                                        <i>Profession</i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-left">
-                                <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                <p class="fs-4 mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</p>
-                                <div class="d-flex align-items-center">
-                                    <img class="img-fluid" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;">
-                                    <div class="ps-3">
-                                        <p class="text-primary fs-5 mb-1">Client Name</p>
-                                        <i>Profession</i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section> -->
-                    <!-- Testimonial End -->
-
-                    <!-- Contact Start -->
-                    <!-- <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
-                        <h1 class="title pb-3 mb-5">Contact Me</h1>
-						<p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a></p>
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0 bg-secondary" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control border-0 bg-secondary" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0 bg-secondary" id="subject" placeholder="Subject">
-                                        <label for="subject">Subject</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control border-0 bg-secondary" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>
-                                        <label for="message">Message</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                                </div>
-                            </div>
-                        </form>
-                    </section> -->
-                    <!-- Contact End -->
-
-                    <!-- Footer Start -->
-                    <section class="wow fadeIn" data-wow-delay="0.1s">
-                        <div class="bg-secondary text-light text-center p-5">
-                            <div class="d-flex justify-content-center mb-4">
-                                <a class="btn btn-secondary btn-square mx-1" target="_blank" href="https://www.linkedin.com/in/janith-jayasuriya/"><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-secondary btn-square mx-1" target="_blank" href="https://github.com/janithsjay"><i class="fab fa-github" aria-hidden="true"></i></a>
-                                <a class="btn btn-secondary btn-square mx-1" target="_blank" href="https://medium.com/@janithsjay"><i class="fab fa-medium"></i></a>
-                                <a class="btn btn-secondary btn-square mx-1" target="_blank" href="https://stackoverflow.com/users/14686823/janith-jayasuriya?tab=profile"><i class="fab fa-stack-overflow"></i></a>
-                            </div>
-                            <div class="d-flex justify-content-center mb-3">
-                                <a class="text-light px-3 border-end" href="#">Privacy</a>
-                                <a class="text-light px-3 border-end" href="#">Terms</a>
-                                <a class="text-light px-3 border-end" href="#">FAQs</a>
-                                <a class="text-light px-3" href="#">Help</a>
-                            </div>
-							
-                            <!-- /*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/ -->
-							<p class="m-0">&copy; All Rights Reserved. Designed by <a href="https://htmlcodex.com">HTML Codex</a></p>
-                        </div>
-                    </section>
-                    <!-- Footer End -->
-                </div>
-            </div>
+        <div class="tool-category">
+          <strong>AI & Machine Learning</strong>
+          <div class="tags">
+            <span class="tag">LangChain</span>
+            <span class="tag">Python</span>
+            <span class="tag">AI-powered IDE tools</span>
+          </div>
         </div>
 
-        
-        <!-- Back to Top -->
-        <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
-        
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        <script src="lib/typed/typed.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/isotope/isotope.pkgd.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
+        <div class="tool-category">
+          <strong>Frontend</strong>
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">TypeScript</span>
+          </div>
+        </div>
 
-        <!-- Contact Javascript File -->
-        <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact.js"></script>
+        <div class="tool-category">
+          <strong>Database</strong>
+          <div class="tags">
+            <span class="tag">MongoDB</span>
+            <span class="tag">SQL</span>
+            <span class="tag">MySQL</span>
+          </div>
+        </div>
 
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-    </body>
+        <div class="tool-category">
+          <strong>Scripting</strong>
+          <div class="tags">
+            <span class="tag">Bash</span>
+            <span class="tag">Python Scripting</span>
+          </div>
+        </div>
+      </div>
+      <nav id="socialIcons" aria-label="Social media links">
+        <a href="mailto:janith@example.com" aria-label="Email Janith">
+          <svg fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" ><path d="M4 4h16v16H4z" /><polyline points="22,6 12,13 2,6" /></svg>
+        </a>
+        <a href="https://github.com/janith" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+          <svg fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" ><path d="M12 1c-6.07 0-11 4.93-11 11a11 11 0 0 0 7.55 10.5c.55.1.75-.25.75-.55v-2.1c-3.07.65-3.7-1.48-3.7-1.48-.5-1.3-1.22-1.65-1.22-1.65-1-.7.08-.7.08-.7 1.1.08 1.67 1.12 1.67 1.12 1 .02 1.55.8 1.55.8 1.3 2.22 3.52 1.57 4.38 1.2.1-.9.4-1.57.7-1.93-2.5-.28-5.1-1.3-5.1-5.8 0-1.3.5-2.35 1.3-3.2-.13-.3-.56-1.52.13-3.2 0 0 1-.3 3.3 1.2a11.6 11.6 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.26 2.9.12 3.2.8.85 1.3 1.9 1.3 3.2 0 4.5-2.6 5.5-5.1 5.8.4.4.7 1.1.7 2.2v3.3c0 .3.2.7.7.6A11 11 0 0 0 23 12c0-6.07-4.93-11-11-11z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/janith" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+          <svg fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" ><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/></svg>
+        </a>
+      </nav>
+    </aside>
+
+    <main id="rightContent" role="main" tabindex="0" aria-label="Main content with about, experience, recommendations, education">
+      <!-- <section id="aboutSection" aria-labelledby="aboutTitle">
+        <h2 id="aboutTitle" class="section-title">About Me</h2>
+        <p>
+          With over 5 years of solid experience, I bring a blend of hands-on engineering excellence and leadership mindset.
+          I take ownership not just of code, but of entire solutions — collaborating across teams to deliver scalable, maintainable, and user-centered software systems.
+          My passion lies at the intersection of AI innovation, workflow automation, and crafting elegant, human-first experiences.
+        </p>
+      </section> -->
+
+      <section id="experienceSection" aria-labelledby="experienceTitle">
+        <h2 id="experienceTitle" class="section-title">Experience</h2>
+
+        <article class="exp-card">
+          <h3 class="exp-role">Senior Software Engineer – Wiley</h3>
+          <p class="exp-period">Jul 2021 – Present</p>
+          <p class="exp-desc">
+          Currently acting as the Technical Lead and Technical Owner for Wiley’s Coltrane solution — a revenue-critical system initially deployed on data center servers behind a proxy and load balancer, with intricate upstream and downstream integrations. I’m leading its modernization into a cloud-native, serverless architecture using AWS Lambda and Step Functions, focusing on scalability, resilience, and cost-efficiency. This transformation boosts platform agility and ensures uninterrupted service, directly impacting customer experience and business revenue.
+
+Alongside Coltrane, I actively collaborate on Wiley’s next-generation Delivery Service platform — a fully event-driven, microservices-based system that serves as the central delivery point for all Wiley publication packages. This platform streamlines content distribution across multiple channels while improving traceability, system performance, and scalability to support future growth.
+
+
+          </p>
+        </article>
+
+        <article class="exp-card">
+          <h3 class="exp-role">Software Engineer Intern – Virtusa</h3>
+          <p class="exp-period">Sep 2018 – Sep 2020</p>
+          <p class="exp-desc">
+            Contributed to the development of internal platforms including a microservice generator, low-code backend builder, and the Auto4GL automation tool. Involved in hands-on research and implementation, experimenting with open-source libraries, customizing components, and building tailored solutions to accelerate internal service development.
+          </p>
+        </article>
+      </section>
+
+      <section id="recommendationsSection" aria-labelledby="recommendationsTitle">
+        <h2 id="recommendationsTitle" class="section-title">LinkedIn Recommendations</h2>
+
+        <blockquote class="rec-card">
+          I have had the pleasure of working with Janith for over three years, and I can confidently say that he is one of the most hardworking and dedicated professionals I’ve encountered at Wiley. His commitment to delivering high-quality work, even under pressure, is truly commendable.
+
+Throughout his time here, Janith has demonstrated consistent growth, progressing from an Associate to a Senior Engineer. Along the way, he has taken on increasing responsibilities and displayed strong leadership, particularly in the successful implementation of several key components. His sound technical judgment, reliability, and proactive approach make him a valuable asset to any team.
+
+I wish Janith continued success and all the very best in his future endeavors.
+          <footer class="rec-author">– Saumya Wanniarachchi, Senior Software Engineering Manager at IFS R&D</footer>
+        </blockquote>
+
+        <blockquote class="rec-card">
+          I've had the pleasure of working with Janith and can confidently say they are one of the most technically proficient and reliable engineers I've worked with. As a Senior Software Engineer, Janith consistently demonstrates a deep understanding of not just the immediate task at hand, but also the bigger picture — from system architecture to long-term scalability.
+
+What sets Janith apart is their strong sense of ownership and accountability. They don't just complete tasks — they take full responsibility for the outcomes and are proactive in addressing challenges before they become issues. Whether it's diving deep into a complex problem, mentoring junior team members, or driving initiatives forward.
+
+Their ability to balance high-level thinking with strong execution makes them a key asset in any tech-driven environment. I highly recommend Janith to any organization looking for a skilled, dependable, and forward-thinking engineering leader.
+          <footer class="rec-author">– Malmi Samarasinghe, Senior Engineering Manager at Wiley</footer>
+        </blockquote>
+
+        <blockquote class="rec-card">
+          I wholeheartedly endorse Janith for their exceptional technical prowess and remarkable efficiency. Their ability to navigate complex tasks with precision is truly commendable. What sets them apart is their consistent knack for completing tasks promptly while maintaining a high standard of quality. Janith is not just technically sound but also a responsible team player who takes ownership of their work. Trust them to get the job done effectively and on time. They're a valuable asset to any team.
+          <footer class="rec-author">– Pramod Sendanayake, Engineering Manager at Virtusa</footer>
+        </blockquote>
+      </section>
+
+      <section id="educationSection" aria-labelledby="educationTitle">
+        <h2 id="educationTitle" class="section-title">Education</h2>
+        <div class="edu-card">
+          <h3 class="edu-degree">BSc in Information Technologyy</h3>
+          <p class="edu-institution">University of Colombo School of Computing — 2021</p>
+          <p class="edu-grade">Grade: First Class</p>
+          <p class="edu-desc">
+            Focused on core Computer Science fundamentals including Programming and Data Structures (Java, C++), Algorithms, Computer Architecture, Operating Systems, System Administration, Networking, Database Management Systems, Computer Systems, Middleware, Software Engineering principles, Agile methodologies, Project Management, and UI/UX Design with Human-Computer Interaction.
+          </p>
+        </div>
+      </section>
+
+      <section id="contactSection" aria-labelledby="contactTitle" style="text-align:center;">
+        <h2 id="contactTitle" class="section-title">Let’s Work Together</h2>
+        <p style="max-width: 520px; margin: 0 auto 24px;">
+          I’m actively looking for leadership roles where I can leverage my deep technical expertise and guide teams towards innovative AI-driven solutions.
+        </p>
+        <a href="https://www.linkedin.com/in/janith-jayasuriya" id="contactBtn" target="_blank" aria-label="Email Janith">Drop Me a Message</a>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Neural Network Lines background effect
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let nodes = [];
+    const nodeCount = 55;
+    const maxDist = 130;
+
+    function resize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    }
+
+    class Node {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.3;
+        this.radius = 2.5;
+      }
+      move() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if(this.x < 0 || this.x > width) this.vx *= -1;
+        if(this.y < 0 || this.y > height) this.vy *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0,0,0,0.4)';
+        ctx.shadowColor = 'rgba(0,0,0,0.6)';
+        ctx.shadowBlur = 6;
+        ctx.fill();
+      }
+    }
+
+    function connectNodes() {
+      for(let i = 0; i < nodeCount; i++) {
+        for(let j = i + 1; j < nodeCount; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          if(dist < maxDist) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0,0,0,${0.25 - dist / (maxDist * 3)})`;
+            ctx.lineWidth = 1.2;
+            ctx.shadowColor = 'rgba(0,0,0,0.3)';
+            ctx.shadowBlur = 5;
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      nodes.forEach(node => {
+        node.move();
+        node.draw();
+      });
+      connectNodes();
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+      resize();
+      nodes = [];
+      for(let i=0; i < nodeCount; i++) {
+        nodes.push(new Node());
+      }
+    });
+
+    resize();
+    for(let i=0; i < nodeCount; i++) {
+      nodes.push(new Node());
+    }
+    animate();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Janith Jayasuriya",
+    "jobTitle": "Senior Software Engineer | Technical Specialist & Engineering Leader",
+    "url": "https://yourportfolio.com",
+    "sameAs": [
+      "https://linkedin.com/in/janith",
+      "https://github.com/janith"
+    ],
+    "email": "mailto:janith@example.com",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Virtusa"
+    },
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "University of Colombo School of Computing"
+    },
+    "knowsAbout": [
+      "Java",
+      "Spring Batch",
+      "AWS (Fargate, Step Functions)",
+      "Docker",
+      "Kubernetes",
+      "Jenkins",
+      "GitLab",
+      "LangChain",
+      "Python",
+      "AI-powered IDE tools",
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "MongoDB",
+      "SQL",
+      "MySQL",
+      "Bash",
+      "Python Scripting",
+      "Factory",
+      "Singleton",
+      "Observer",
+      "Strategy",
+      "Decorator",
+      "Dependency Injection",
+      "Microservices",
+      "Event-Driven Architecture",
+      "Client-Server",
+      "Serverless",
+      "Cloud-Native Design"
+    ]
+  }
+  </script>
+</body>
 </html>
